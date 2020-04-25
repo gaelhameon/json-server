@@ -363,8 +363,9 @@ You can add your middlewares from the CLI using `--middlewares` option:
 
 ```js
 // hello.js
-module.exports = (req, res, next) => {
+module.exports = (req, res, next, db) => {
   res.header('X-Hello', 'World')
+  res.header('X-World', db.get('world').value())
   next()
 }
 ```
