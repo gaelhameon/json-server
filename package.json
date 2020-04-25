@@ -11,6 +11,7 @@
   "scripts": {
     "postinstall": "husky install",
     "test": "npm run build && cross-env NODE_ENV=test jest && npm run lint",
+    "test:watch": "npm run build && cross-env NODE_ENV=test jest --watch",
     "start": "babel-node -- src/cli/bin db.json -r routes.json",
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
