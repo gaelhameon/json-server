@@ -65,8 +65,8 @@ function createApp(db, routes, middlewares, render, argv) {
   if (middlewares) {
     app.use(
       middlewares.map(
-        m =>
-          function(req, res, next) {
+        (m) =>
+          function (req, res, next) {
             m(req, res, next, router.db)
           }
       )
@@ -74,9 +74,7 @@ function createApp(db, routes, middlewares, render, argv) {
   }
 
   if (render) {
-    router.render = function(req, res) {
-      render(req, res)
-    }
+    router.render = render
   }
 
   if (argv.delay) {
@@ -136,7 +134,7 @@ module.exports = function (argv) {
       // Load render
       let render
       if (argv.render) {
-        console.log(chalk.gray('  Loading (after)', argv.render))
+        console.log(chalk.gray('  Loading (render)', argv.render))
         render = require(path.resolve(argv.render))
       }
 

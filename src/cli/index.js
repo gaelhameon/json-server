@@ -34,8 +34,8 @@ module.exports = function () {
         description: 'Paths to middleware files',
       },
       render: {
-        alias: 'a',
-        description: 'Path to execute after process'
+        alias: 're',
+        description: 'Path to a render function file',
       },
       static: {
         alias: 's',
@@ -89,6 +89,7 @@ module.exports = function () {
     .boolean('no-gzip')
     .help('help')
     .alias('help', 'h')
+    .alias('render', 're')
     .version(pkg.version)
     .alias('version', 'v')
     .example('$0 db.json', '')
